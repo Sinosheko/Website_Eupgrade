@@ -205,11 +205,33 @@ hr{
     width: 24px;
     height: 24px;
 }
-footer {
-    color: #eeeeee;
-    padding: 2rem;
-    text-align: center;
+
+.paypal-donate-btn {
+    text-decoration: none;
+    background-color: #00adb5; 
+    color: white; 
+    font-size: 16px; 
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    padding: 0.5rem 1.5rem; 
+    border: none; 
+    border-radius: 24px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+    margin-top: 10px; 
+    transition: transform 0.2s;
 }
+
+.paypal-donate-btn:hover {
+    background-color: #005f87; 
+    transform: scale(1.1);
+}
+
+footer {
+    text-align: center; 
+    padding: 20px 0; 
+    color: white; 
+}
+
 @media (max-width: 1023px) {
     header {
       margin-left: 1rem;
