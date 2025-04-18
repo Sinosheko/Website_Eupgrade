@@ -4,18 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css" />
-    <title>GodoTech🎮</title>
-    <link rel="icon" href="Tap_Png.png" type="image/png">
+    <title>GDevStudio 🎮</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="Tap_Png.png">
+    <meta name="description" content="Yassin Abdelaziz | Game Developer specializing in Godot Engine. Check out my portfolio and projects!">
+    <meta name="keywords" content="Godot, Game Development, GDScript, 2D Games, 3D Games">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <div class="controls">
+        <button id="themeToggle" class="control-btn">🌓</button>
+        <button id="langToggle" class="control-btn">ع/EN</button>
+    </div>
+    
     <header>
         <img src="svg/Logo.svg" alt="Yassin Dev">
         <nav class="navigation">
             <ul>
-                <li><a href="#Home">Home</a></li>
-                <li><a href="#AboutMe">AboutMe</a></li>
-                <li><a href="#MyWorks">MyWorks</a></li>
-                <li><a href="#ContactMe">ContactMe</a></li>
+                <li><a href="#Home" data-i18n="nav.home">Home</a></li>
+                <li><a href="#AboutMe" data-i18n="nav.about">AboutMe</a></li>
+                <li><a href="#MyWorks" data-i18n="nav.works">MyWorks</a></li>
+                <li><a href="#ContactMe" data-i18n="nav.contact">ContactMe</a></li>
             </ul>
         </nav>
     </header>
@@ -23,14 +32,14 @@
     <section class="hero" id="Home">
         <img class="arrow" src="svg/arrow.svg" alt="arrow">
         <div class="heroSub">
-            <h1 class="name">I'm Yassin</h1>
-            <h1 class="title">Developer at Godot</h1>
+            <h1 class="name" data-i18n="hero.name">I'm Yassin</h1>
+            <h1 class="title" data-i18n="hero.title">Developer at Godot</h1>
             <div class="herobuttons">
-                <a class="hireMe" href="#ContactMe">Hire Me</a>
-                <a class="cv" href="YassinPDF.pdf" download
-                >Download CV
-                <img src="svg/download.svg" alt="DownloadButton"
-                /></a>
+                <a class="hireMe" href="#ContactMe" data-i18n="hero.hire">Hire Me</a>
+                <a class="cv" href="YassinPDF.pdf" download>
+                    <span data-i18n="hero.cv">Download CV</span>
+                    <img src="svg/download.svg" alt="DownloadButton"/>
+                </a>
             </div>
         </div>
         <img src="svg/Hero.svg" alt="hero image" class="heroImg"/>
@@ -39,11 +48,11 @@
         <img src="svg/AboutMe.svg" alt="AboutMe Image" class="AboutMeImg"/>
         <div class="textContainer">
             <div class="textTitle">
-                <h1 class="AboutName">About</h1>
-                <h1 class="AboutTitle">me</h1>
+                <h1 class="AboutName" data-i18n="about.title1">About</h1>
+                <h1 class="AboutTitle" data-i18n="about.title2">me</h1>
                 <img src="svg/lightbulb.svg" alt="lightbulb" class="light">
             </div>
-            <p class="aboutMePar">
+            <p class="aboutMePar" data-i18n="about.description">
                 ✨ I'm Yassin Abdelaziz 🎮، a passionate young game developer! 🚀💻
                 🔥 At just 12 years old 🎂, I'm already crafting 2D & 3D games, bringing ideas to life through code! 🧩🎨
                 💡 I love exploring new technologies, solving problems 🛠️, and constantly improving my skills in game development! 🎯🎮
@@ -59,59 +68,77 @@
                 <h1 class="AboutName">My Recent</h1>
                 <h1 class="AboutTitle">Works</h1>
             </div>
-            <ul>
-                <ul>
-                    <li>
-                        <a href="https://www.mediafire.com/file/s3kt9g0lkrht90k/Where%2527s_My_Treasure.rar/file" target="_blank"
-                        ><img src="imgs/1.png"
-                        ></a>
-                    </li>
-                    <li>
-                        <a href="https://www.mediafire.com/file/qq6w71wwyorhoyf/Tom%2526Jerry.rar/file" target="_blank"
-                        ><img src="imgs/2.png"
-                        ></a>
-                    </li>
-                    <li>
-                        <a href="https://www.mediafire.com/file/6upa5uf10wvc88h/FlappyBird.rar/file" target="_blank"
-                        ><img src="imgs/3.png"
-                        ></a>
-                    </li>
-                    <li>
-                        <a href="https://www.mediafire.com/file/4fqeyxxux0j68h9/Ninja+Run.zip/file" target="_blank"
-                        ><img src="imgs/ICO.jpg"
-                        ></a>
-                    </li>
-                </ul>
+            <div class="projects-grid">
+                <div class="project-card" data-project="1">
+                    <img src="imgs/1.png" alt="Where's My Treasure">
+                    <div class="project-overlay">
+                        <h3>Where's My Treasure</h3>
+                        <p>A fun adventure game</p>
+                        <div class="project-buttons">
+                            <a href="https://www.mediafire.com/file/s3kt9g0lkrht90k/Where%2527s_My_Treasure.rar/file" 
+                               target="_blank" class="project-btn">Download</a>
+                            <button class="project-btn view-details">Details</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-project="1">
+                    <img src="imgs/2.png" alt="FlappyBird">
+                    <div class="project-overlay">
+                        <h3>FlappyBird</h3>
+                        <p>A Challenging and fast-paced game</p>
+                        <div class="project-buttons">
+                            <a href="https://www.mediafire.com/file/6upa5uf10wvc88h/FlappyBird.rar/file" 
+                               target="_blank" class="project-btn">Download</a>
+                            <button class="project-btn view-details">Details</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-project="1">
+                    <img src="imgs/8.jpg" alt="ComingSoon">
+                    <div class="project-overlay">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Project Modal -->
+        <div id="projectModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2 id="modalTitle">Project Title</h2>
+                <img id="modalImage" src="" alt="">
+                <p id="modalDescription">Project description goes here...</p>
+                <a id="modalLink" href="#" target="_blank" class="project-btn">Download</a>
+            </div>
         </div>
     </section>
     <section class="ContactContainer" id="ContactMe">
         <div class="ContactTitle">
-            <h1 class="AboutName">Contact</h1>
-            <h1 class="AboutTitle">Me</h1>
+            <h1 class="AboutName" data-i18n="contact.title1">Contact</h1>
+            <h1 class="AboutTitle" data-i18n="contact.title2">Me</h1>
         </div>
         <div class="Contact">
             <div class="EmailAndPhone">
                 <img src="svg/Email.svg" alt="Email Logo">
-                <hr href="YassinAbdelazizGD@gmail.com"
-                ><h3>YassinAbdelazizGD@gmail.com</h3></a>
+                <a href="mailto:YassinAbdelazizGD@gmail.com">
+                    <h3>YassinAbdelazizGD@gmail.com</h3>
+                </a>
             </div>
             <div class="EmailAndPhone">
                 <img src="svg/phone.svg" alt="Phone Logo">
-                <hr href="+201040942496"
-                ><h3>+201040942496</h3></a>
-                        
+                <a href="tel:+201040942496">
+                    <h3>+201040942496</h3>
+                </a>
             </div>
-            </div>
+        </div>
     </section>
     <hr />
     <footer>
-        <p>Built By YassinDev.</p>
+        <p data-i18n="footer.built">Built By YassinDev.</p>
         <form action="https://lnk.bio/YassinDev" target="_blank">
-            <button class="JK">My Acounts</button>
-            <br>
-            <br>
-            <a class="JK" href="https://codesuite.netlify.app/" target ="_blank">Developers Tools</a>
+            <button class="JK" data-i18n="footer.accounts">My Accounts</button>
         </form>
-    </footer>  
+    </footer>
+    <button id="backToTopBtn"><i class="fas fa-arrow-up"></i></button>
+    <script src="script.js"></script>
 </body>
 </html>
