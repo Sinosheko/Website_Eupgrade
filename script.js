@@ -225,7 +225,7 @@ function updateTranslations(lang) {
   });
   
   // Update page title
-  document.title = lang === 'ar' ? 'ما وراء جودوت' : 'Beyond Godot';
+  document.title = lang === 'ar' ? 'ما وراء جودوت 🎮' : 'Beyond Godot 🎮';
   
   // Update meta description
   const metaDescription = document.querySelector('meta[name="description"]');
@@ -235,3 +235,76 @@ function updateTranslations(lang) {
           : 'Yassin Abdelaziz | Game Developer specializing in Godot Engine. Check out my portfolio and projects!';
   }
 }
+// تأثيرات صوتية
+document.querySelectorAll('a, button').forEach(element => {
+    element.addEventListener('mouseenter', () => {
+      document.getElementById('hoverSound').currentTime = 0;
+      document.getElementById('hoverSound').play();
+    });
+    
+    element.addEventListener('click', () => {
+      document.getElementById('clickSound').currentTime = 0;
+      document.getElementById('clickSound').play();
+    });
+  });
+  
+  // Particle.js Initialization
+  document.addEventListener('DOMContentLoaded', function() {
+    // تحميل particles.js إذا لم يكن محملاً
+    if (typeof particlesJS !== 'undefined') {
+      particlesJS.load('particles-js', 'particles-config.json', function() {
+        console.log('Particles.js loaded');
+      });
+    }
+    
+    // تأثيرات المطر الرقمي (Matrix Rain)
+    if (document.querySelector('.matrix-rain')) {
+      const matrix = document.querySelector('.matrix-rain');
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = matrix.clientWidth;
+      canvas.height = matrix.clientHeight;
+      matrix.appendChild(canvas);
+      
+      // Matrix Rain Code هنا يمكنك إضافة كود 
+    }
+    
+    // تأثيرات اهتزاز عند التمرير
+    window.addEventListener('scroll', function() {
+      const scrollPosition = window.scrollY;
+      document.querySelectorAll('.project-card').forEach((card, index) => {
+        setTimeout(() => {
+          card.style.transform = `translateY(-10px) rotate(${Math.sin(scrollPosition/100 + index)*2}deg)`;
+        }, index * 100);
+      });
+    });
+    
+    // تأثيرات عشوائية
+    setInterval(() => {
+      const randomElement = document.querySelectorAll('h1, h2, h3')[Math.floor(Math.random()*5)];
+      if (randomElement) {
+        randomElement.style.textShadow = `0 0 10px ${getRandomColor()}`;
+        setTimeout(() => {
+          randomElement.style.textShadow = '';
+        }, 500);
+      }
+    }, 3000);
+  });
+  
+  function getRandomColor() {
+    const colors = ['#00f3ff', '#ff00ff', '#9d00ff', '#00ff41', '#ff9900'];
+    return colors[Math.floor(Math.random() * colors.length)];
+  }
+  
+  // تأثيرات تحميل الصفحة
+  window.onload = function() {
+    document.body.classList.add('loaded');
+    setTimeout(() => {
+      document.querySelectorAll('section').forEach((section, index) => {
+        setTimeout(() => {
+          section.style.opacity = '1';
+          section.style.transform = 'translateY(0)';
+        }, index * 300);
+      });
+    }, 500);
+  };
