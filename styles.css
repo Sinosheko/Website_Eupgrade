@@ -1176,3 +1176,243 @@ header {
         justify-content: center;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* تأثيرات جامدة فشخ */
+:root {
+    --neon-blue: #00f3ff;
+    --neon-pink: #ff00ff;
+    --neon-purple: #9d00ff;
+    --matrix-green: #00ff41;
+  }
+  
+  /* Particle.js Background */
+  #particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  }
+  
+  /* Glitch Effect */
+  .glitch-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      45deg,
+      var(--neon-blue) 0%,
+      transparent 50%,
+      var(--neon-pink) 100%
+    );
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: overlay;
+    animation: glitch 5s infinite alternate;
+  }
+  
+  @keyframes glitch {
+    0% { opacity: 0.03; filter: hue-rotate(0deg); }
+    20% { opacity: 0.05; transform: skew(0.5deg); }
+    40% { opacity: 0.07; filter: hue-rotate(10deg); }
+    60% { opacity: 0.04; transform: skew(-0.5deg); }
+    80% { opacity: 0.06; filter: hue-rotate(-5deg); }
+    100% { opacity: 0.03; filter: hue-rotate(0deg); }
+  }
+  
+  /* تأثيرات النيون للعناوين */
+  .title, .AboutTitle {
+    position: relative;
+    text-shadow: 
+      0 0 5px var(--neon-blue),
+      0 0 10px var(--neon-blue),
+      0 0 20px var(--neon-blue),
+      0 0 40px var(--neon-purple);
+    animation: neon-flicker 2s infinite alternate;
+  }
+  
+  @keyframes neon-flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+      text-shadow:
+        0 0 5px var(--neon-blue),
+        0 0 10px var(--neon-blue),
+        0 0 20px var(--neon-blue),
+        0 0 40px var(--neon-purple);
+    }
+    20%, 24%, 55% {        
+      text-shadow: none;
+    }
+  }
+  
+  /* تأثيرات الأزرار الجامدة */
+  .hireMe, .cv, .project-btn, .JK {
+    position: relative;
+    overflow: hidden;
+    border: none;
+    transition: all 0.4s;
+    box-shadow: 
+      0 0 10px var(--neon-blue),
+      0 0 20px rgba(0, 173, 181, 0.3);
+  }
+  
+  .hireMe:hover, .cv:hover, .project-btn:hover, .JK:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 
+      0 0 15px var(--neon-blue),
+      0 0 30px var(--neon-purple),
+      0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .hireMe::after, .cv::after, .project-btn::after, .JK::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.8) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(30deg);
+    animation: shine 3s infinite;
+  }
+  
+  @keyframes shine {
+    0% { left: -60%; }
+    100% { left: 140%; }
+  }
+  
+  .project-card {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(0, 243, 255, 0.2);
+  }
+  .project-card:hover {
+    transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.3),
+      0 0 30px var(--neon-purple),
+      0 0 60px var(--neon-blue);
+  }
+  body {
+    cursor: url('custom-cursor.png'), auto;
+  }
+  a, button {
+    cursor: url('custom-cursor-pointer.png'), pointer;
+  }
+  .matrix-rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.1;
+    pointer-events: none;
+  }
+  /* تأكد من وجود هذه المتغيرات في :root */
+:root {
+    --neon-blue: #00f3ff;
+    --neon-pink: #ff00ff;
+    --neon-purple: #9d00ff;
+    --matrix-green: #00ff41;
+    --dark-bg: #222831;
+    --light-bg: #f5f7fa;
+    --dark-text: #eeeeee;
+    --light-text: #2d3748;
+  }
+  
+  /* تعديل تأثيرات الجليتش لثيم الضوء */
+  body.light-theme .glitch-effect {
+    background: linear-gradient(
+      45deg,
+      rgba(0, 173, 181, 0.1) 0%,
+      transparent 50%,
+      rgba(108, 99, 255, 0.1) 100%
+    );
+    mix-blend-mode: multiply;
+  }
+  
+  /* تعديل تأثيرات النيون لثيم الضوء */
+  body.light-theme .title,
+  body.light-theme .AboutTitle {
+    text-shadow: 
+      0 0 5px rgba(0, 173, 181, 0.5),
+      0 0 10px rgba(0, 173, 181, 0.4),
+      0 0 20px rgba(0, 173, 181, 0.3);
+    color: #00adb5;
+  }
+  
+  /* تعديل الأزرار لثيم الضوء */
+  body.light-theme .hireMe,
+  body.light-theme .cv,
+  body.light-theme .project-btn,
+  body.light-theme .JK {
+    box-shadow: 
+      0 0 10px rgba(0, 173, 181, 0.3),
+      0 0 20px rgba(0, 173, 181, 0.1);
+  }
+  
+  body.light-theme .hireMe:hover,
+  body.light-theme .cv:hover,
+  body.light-theme .project-btn:hover,
+  body.light-theme .JK:hover {
+    box-shadow: 
+      0 0 15px rgba(0, 173, 181, 0.4),
+      0 0 30px rgba(108, 99, 255, 0.2),
+      0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* تعديل الكروت لثيم الضوء */
+  body.light-theme .project-card {
+    border: 1px solid rgba(0, 173, 181, 0.2);
+  }
+  
+  body.light-theme .project-card:hover {
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.1),
+      0 0 30px rgba(0, 173, 181, 0.2),
+      0 0 60px rgba(108, 99, 255, 0.1);
+  }
+  
+  /* تعديل خلفية الجسيمات لثيم الضوء */
+  body.light-theme #particles-js {
+    background: radial-gradient(ellipse at bottom, #E4E7EB 0%, #C3C6CB 100%);
+  }
+  
+  /* تعديل تأثير الشاين (اللمعة) لثيم الضوء */
+  body.light-theme .hireMe::after,
+  body.light-theme .cv::after,
+  body.light-theme .project-btn::after,
+  body.light-theme .JK::after {
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.6) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
